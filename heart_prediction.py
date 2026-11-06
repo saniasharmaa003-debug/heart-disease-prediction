@@ -6,7 +6,8 @@ model = joblib.load('LOGREG_heart.pkl')
 scaler = joblib.load('scaler.pkl')
 expected_columns = joblib.load('columns.pkl')
 
-st.title('Heart stroke prediction by Sania!!')
+st.title("Heart Disease Prediction!!")
+st.subheader("Predictive Analysis Using Logistic Regression")
 st.markdown('Provide the following details: ')
 
 age=st.slider("AGE",18,100,40)
@@ -47,9 +48,12 @@ if st.button('predict'):
     input_df[numeric_cols] = scaler.transform(input_df[numeric_cols])
     prediction = model.predict(input_df)[0]
 
-    
+   
     if prediction == 1:
         st.error('High risk of heart disease.')
     else:
         st.success('Low risk of heart disease.')
+    probability = model.predict_proba(input_df)[0][1]
+    st.write(f"Predicted probability: {probability:.2%}")
+        
                            
