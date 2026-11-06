@@ -2,9 +2,9 @@ import streamlit as st
 import pandas as pd
 import joblib 
 
-model = joblib.load('C:/Users/DELL/OneDrive/Desktop/ML/learning/LOGREG_heart.pkl')
-scaler = joblib.load('C:/Users/DELL/OneDrive/Desktop/ML/learning/scaler.pkl')
-expected_columns = joblib.load('C:/Users/DELL/OneDrive/Desktop/ML/learning/columns.pkl')
+model = joblib.load('LOGREG_heart.pkl')
+scaler = joblib.load('scaler.pkl')
+expected_columns = joblib.load('columns.pkl')
 
 st.title('Heart stroke prediction by Sania!!')
 st.markdown('Provide the following details: ')
